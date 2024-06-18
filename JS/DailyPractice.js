@@ -26,9 +26,9 @@ console.log(names);
 
 
 
-
-
 // create a new array endInY with just the girls whose nickname ends in "y"
 
+const endInY = spices.filter(s => s.nickname.slice(-1) === "y")
 
+console.log(endInY);
 
