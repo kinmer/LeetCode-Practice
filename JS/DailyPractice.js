@@ -8,3 +8,27 @@ function createHelloWorld(){
  
  const a = createHelloWorld();
  console.log(a());
+
+
+
+
+ const spices = [
+    {name: "Emma", nickname: "Baby"},
+    {name: "Geri", nickname: "Ginger"},
+    {name: "Mel B", nickname: "Scary"},
+    {name: "Mel C", nickname: "Sporty"},
+    {name: "Victoria", nickname: "Posh"}
+];
+
+// create a new array names with only the name of each girl
+const names = spices.map(s => s.name);
+console.log(names);
+
+
+
+
+
+// create a new array endInY with just the girls whose nickname ends in "y"
+
+
+
