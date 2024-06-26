@@ -35,7 +35,7 @@ console.log(endInY);
 // Given an integer n, return a counter function. This counter function initially returns n and then returns 1 more than the previous value every subsequent time it is called (n, n + 1, n + 2, etc).
 
 
-const createCounter = (n) => {
+const createCounter1 = (n) => {
     let current = n;
     const counter = () => {
        return current ++;
@@ -43,10 +43,10 @@ const createCounter = (n) => {
     return counter;
 }
 
-const counter = createCounter(10);
-console.log(counter());
-console.log(counter()); 
-console.log(counter()); 
+const counter1 = createCounter1(10);
+console.log(counter1());
+console.log(counter1()); 
+console.log(counter1()); 
 
 // Write a function expect that helps developers test their code. It should take in any value val and return an object with the following two functions.
 
@@ -69,3 +69,32 @@ const expect = (x) => {
 
 console.log(expect(5).toBe(5));
 console.log(expect(5).notToBe(5));
+
+// Write a function createCounter. It should accept an initial integer init. It should return an object with three functions.
+// The three functions are:
+// increment() increases the current value by 1 and then returns it.
+// decrement() reduces the current value by 1 and then returns it.
+// reset() sets the current value to init and then returns it.
+
+const createCounter = (init) => {
+    let current = init;
+    return{
+        increment: function(current) {
+            current +=1;
+            return current;
+        },
+        decrement: function(current) {
+            current -=1;
+            return current;
+        },
+        reset: function(current) {
+            current = init;
+            return current;
+        }
+    }
+}
+
+const counter = createCounter(5);
+console.log(counter.increment()); 
+console.log(counter.reset()); 
+console.log(counter.decrement()); 
