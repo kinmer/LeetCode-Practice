@@ -112,3 +112,21 @@ const map = (arr, fn) => {
     }
     return newArr;
 }
+
+
+
+/**
+ * @param {number[]} arr
+ * @param {Function} fn
+ * @return {number[]}
+ */
+var filter = function(arr, fn) {
+    const filteredArr = [];
+    for (n of arr) {
+        let i = arr.indexOf(n);
+        if (fn(n, i)) {
+            filteredArr.push(n)
+        }
+    }
+    return filteredArr;
+};
