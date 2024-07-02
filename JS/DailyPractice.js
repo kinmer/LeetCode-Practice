@@ -130,3 +130,12 @@ var filter = function(arr, fn) {
     }
     return filteredArr;
 };
+
+var reduce = function(nums, fn, init) {
+    let val = init;
+    for (num of nums) {
+       val = fn(val, num);
+    }
+       return val;
+   };
+   
