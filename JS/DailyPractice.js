@@ -184,3 +184,7 @@ var once = function(fn) {
  
      return value1 + value2;
  };
+
+ async function sleep(millis) {
+    await new Promise(resolve => setTimeout(resolve, millis))
+}
