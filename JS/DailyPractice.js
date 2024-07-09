@@ -188,3 +188,6 @@ var once = function(fn) {
  async function sleep(millis) {
     await new Promise(resolve => setTimeout(resolve, millis))
 }
+
+
+//stilll have no idea about clearTimeout;
