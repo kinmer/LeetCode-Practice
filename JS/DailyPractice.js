@@ -230,3 +230,8 @@ Array.prototype.groupBy = function(fn) {
       return grouped;
     }, {});
   };ß
+
+
+  var sortBy = function(arr, fn) {
+    return arr.sort((a, b) => fn(a) - fn(b));
+};
