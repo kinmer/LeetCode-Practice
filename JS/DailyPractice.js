@@ -235,3 +235,21 @@ Array.prototype.groupBy = function(fn) {
   var sortBy = function(arr, fn) {
     return arr.sort((a, b) => fn(a) - fn(b));
 };
+
+var join = function(arr1, arr2) {
+    const result  = {};
+    arr1.forEach(item => {
+        result[item.id] = item;
+    });
+
+    arr2.forEach(item => {
+        if (result[item.id]) {
+            Object.keys(item).forEach (key => {
+                result[item.id][key] = item[key]
+            });
+        } else {
+            result[item.id] = item;
+        }
+    })
+return Object.values(result);
+};
