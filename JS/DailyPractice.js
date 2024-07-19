@@ -253,3 +253,9 @@ var join = function(arr1, arr2) {
     })
 return Object.values(result);
 };
+
+
+var cancellable = function(fn, args, t) {
+    const t1 = setTimeout(()=>fn(...args), t);
+    return () => clearTimeout(t1)
+};
