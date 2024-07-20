@@ -259,3 +259,10 @@ var cancellable = function(fn, args, t) {
     const t1 = setTimeout(()=>fn(...args), t);
     return () => clearTimeout(t1)
 };
+var cancellable = function(fn, args, t) {
+    fn(...args);
+    let timer = setInterval(() => fn(...args), t);
+
+    let cancelFn = () => clearInterval(timer);
+    return cancelFn;
+};
