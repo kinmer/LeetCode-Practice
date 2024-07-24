@@ -275,3 +275,16 @@ var timeLimit = function(fn, t) {
         })
     }
 };
+
+const memoize = (fn) => {
+    const caceh = {};
+    return  function(...args) {
+        const key = String(args);
+        if (key in caceh) {
+            return caceh[key];
+        }
+        const result = fn(...args);
+        caceh[key] = result;
+        return result;
+    }
+}
