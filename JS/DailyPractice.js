@@ -309,3 +309,11 @@ TimeLimitedCache.prototype.get = function(key) {
 TimeLimitedCache.prototype.count = function() {
     return this.caceh.size
 }
+
+const debounce = (fn, t = 1000) => {
+    let timer;
+    return function(...args) {
+        clearTimeout(timer);
+        timer = setTimeout(() => fn(...args), t);
+    }
+}
