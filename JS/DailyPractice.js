@@ -317,3 +317,31 @@ const debounce = (fn, t = 1000) => {
         timer = setTimeout(() => fn(...args), t);
     }
 }
+
+
+function customPromiseAll(functions) {
+    return new Promise((resolve, reject) => {
+        const results = new Array(functions.length);
+        let resolvedCount = 0;
+        let rejected = false;
+
+        functions.forEach((fn, index) => {
+            fn().then(value => {
+                if (!rejected) {
+                    results[index] = value;
+                    resolvedCount += 1;
+
+                    // If all promises are resolved, resolve the final promise
+                    if (resolvedCount === functions.length) {
+                        resolve(results);
+                    }
+                }
+            }).catch(err => {
+                if (!rejected) {
+                    rejected = true;
+                    reject(err);
+                }
+            });
+        });
+    });
+}
